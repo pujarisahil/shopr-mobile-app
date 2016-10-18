@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">ShoprApp</string>
+    <string name="title_activity_home">HomeActivity</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+
+    <!-- Page Titles -->
+    <string name="home_title">Home</string>
+    <string name="shopping_cart_title">Shopping Cart</string>
+    <string name="wish_list_title">Wish List</string>
+    <string name="feedback_title">Feedback</string>
+</resources>
