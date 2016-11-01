@@ -1,9 +1,11 @@
-package shopr.com.shoprapp.activity;
+package shopr.com.shoprapp.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
+import android.support.v4.app.DialogFragment;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -13,11 +15,20 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
+import com.loopj.android.http.AsyncHttpResponseHandler;
+
+import cz.msebera.android.httpclient.Header;
 import shopr.com.shoprapp.R;
+import shopr.com.shoprapp.fragment.FeedbackFragment;
+import shopr.com.shoprapp.fragment.HomeFragment;
+import shopr.com.shoprapp.fragment.SearchDialogFragment;
+import shopr.com.shoprapp.fragment.ShoppingCartFragment;
+import shopr.com.shoprapp.fragment.WishListFragment;
+import shopr.com.shoprapp.utils.ShoprRestClient;
 
-public class MainActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
+public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,13 +37,22 @@ public class MainActivity extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        try {
+            Fragment fragment = HomeFragment.class.newInstance();
+            FragmentManager fragmentManager = getSupportFragmentManager();
+            fragmentManager.beginTransaction().replace(R.id.main_fragment_content, fragment).commit();
+            setTitle(R.string.home_title);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         if (fab != null) {
             fab.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                            .setAction("Action", null).show();
+                    DialogFragment dialog = new SearchDialogFragment();
+                    dialog.show(getSupportFragmentManager(), "SearchDialogFragment");
                 }
             });
         }
@@ -83,27 +103,57 @@ public class MainActivity extends AppCompatActivity
         return super.onOptionsItemSelected(item);
     }
 
+    @Override
+    protected void onPostCreate(Bundle savedInstanceState) {
+        super.onPostCreate(savedInstanceState);
+    }
+
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
         int id = item.getItemId();
-        Intent intent = null;
+        Class fragmentClass;
 
         if (id == R.id.nav_home) {
-            // Handle the home action
-            intent = new Intent(this, HomeActivity.class);
+            fragmentClass = HomeFragment.class;
         } else if (id == R.id.nav_cart) {
-            intent = new Intent(this, ShoppingCartActivity.class);
+            fragmentClass = ShoppingCartFragment.class;
         } else if (id == R.id.nav_wish) {
-            intent = new Intent(this, WishListActivity.class);
+            fragmentClass = WishListFragment.class;
         } else if (id == R.id.nav_feedback) {
-            intent = new Intent(this, FeedbackActivity.class);
+            fragmentClass = FeedbackFragment.class;
+        } else if (id == R.id.nav_logout) {
+            ShoprRestClient.post("/accounts/logout", null, new AsyncHttpResponseHandler() {
+                @Override
+                public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
+                }
+
+                @Override
+                public void onFailure(int statusCode, Header[] headers, byte[] responseBody, Throwable error) {
+                }
+            });
+            Toast.makeText(getApplicationContext(), "Logged out", Toast.LENGTH_LONG).show();
+            Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
+            startActivity(intent);
+            finish();
+            return true;
+        } else {
+            fragmentClass = HomeFragment.class;
         }
 
-        if (intent != null) {
-            startActivity(intent);
+        Fragment fragment = null;
+        try {
+            fragment = (Fragment) fragmentClass.newInstance();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
+
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        fragmentManager.beginTransaction().replace(R.id.main_fragment_content, fragment).commit();
+
+        item.setCheckable(true);
+        setTitle(item.getTitle());
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         if (drawer != null) {

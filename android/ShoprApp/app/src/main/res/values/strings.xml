@@ -12,4 +12,22 @@
     <string name="shopping_cart_title">Shopping Cart</string>
     <string name="wish_list_title">Wish List</string>
     <string name="feedback_title">Feedback</string>
+    <string name="logout_title">Logout</string>
+
+    <string name="facebook_app_id">878577035610496</string>
+
+    <string-array name="search_order_by_array">
+        <item>Popularity</item>
+        <item>Ratings</item>
+        <item>Price Low to High</item>
+        <item>Price High to Low</item>
+    </string-array>
+
+    <string-array name="search_categories_array">
+        <item>All</item>
+        <item>Appliances</item>
+        <item>Computers</item>
+        <item>Phones</item>
+        <item>TVs</item>
+    </string-array>
 </resources>
