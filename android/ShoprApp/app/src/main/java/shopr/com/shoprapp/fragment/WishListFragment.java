@@ -22,6 +22,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -48,7 +49,7 @@ public class WishListFragment extends Fragment {
         context = getContext();
         final List<ShoprProduct> products = new ArrayList<>();
         String url = "/user/wishlist";
-        RequestParams params = new RequestParams();
+        final RequestParams params = new RequestParams();
         final DialogFragment spinnerDialog = SpinnerDialogFragment.newInstance(
                 "Loading",
                 "Getting product information..."
@@ -63,10 +64,20 @@ public class WishListFragment extends Fragment {
                     JSONArray response = new JSONArray(new String(responseBody));
                     for (int i = 0; i < response.length(); i++) {
                         JSONObject curObj = response.getJSONObject(i);
-                        ShoprProduct shoprProduct = new ShoprProduct();
-                        shoprProduct.setVendor((String) curObj.get("vendor"));
-                        shoprProduct.setUpc((String) curObj.get("upc"));
-                        products.add(shoprProduct);
+                        ShoprProduct product = new ShoprProduct();
+                        product.setUpc((String) curObj.get("upc"));
+                        product.setName((String) curObj.get("name"));
+                        product.setRegularPrice((Double) curObj.get("regular_price"));
+                        product.setSalePrice((Double) curObj.get("sale_price"));
+                        product.setImage((String) curObj.get("image"));
+                        product.setThumbnailImage((String) curObj.get("thumbnail"));
+                        product.setShortDescription((String) curObj.get("short_desc"));
+                        product.setLongDescription((String) curObj.get("long_desc"));
+                        product.setCustomerReviewCount(Long.valueOf((Integer) curObj.get("cust_review_count")));
+                        product.setCustomerReviewAverage((String) curObj.get("cust_review_avg"));
+                        product.setVendor((String) curObj.get("vendor"));
+                        product.setCategoryPath((String) curObj.get("category_path"));
+                        products.add(product);
                     }
                 } catch (JSONException e) {
                     Log.e("JSONParsing", "Error parsing JSON");

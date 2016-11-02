@@ -4,16 +4,15 @@ import java.sql.Date;
 
 /**
  * Created by Neil on 10/19/2016.
+ *
+ * @author Neil Allison
  */
 @SuppressWarnings("unused")
 public class ShoprProduct {
     private String upc;
-    private Long productId;
     private String name;
-    private String type;
     private Double regularPrice;
     private Double salePrice;
-    private Boolean onSale;
     private String image;
     private String thumbnailImage;
     private String shortDescription;
@@ -32,28 +31,12 @@ public class ShoprProduct {
         this.upc = sku;
     }
 
-    public Long getProductId() {
-        return productId;
-    }
-
-    public void setProductId(Long productId) {
-        this.productId = productId;
-    }
-
     public String getName() {
         return name;
     }
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public String getType() {
-        return type;
-    }
-
-    public void setType(String type) {
-        this.type = type;
     }
 
     public Double getRegularPrice() {
@@ -70,14 +53,6 @@ public class ShoprProduct {
 
     public void setSalePrice(Double salePrice) {
         this.salePrice = salePrice;
-    }
-
-    public Boolean getOnSale() {
-        return onSale;
-    }
-
-    public void setOnSale(Boolean onSale) {
-        this.onSale = onSale;
     }
 
     public String getImage() {

@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.TextInputEditText;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -122,6 +123,8 @@ public class LoginActivity extends AppCompatActivity {
 
                 @Override
                 public void onFailure(int statusCode, Header[] headers, byte[] responseBody, Throwable error) {
+                    Log.e("LoginActivity", "Status: " + statusCode);
+                    Log.e("LoginActivity", "Response: " + new String(responseBody));
                     onLoginFailed();
                     progressDialog.dismiss();
                 }
