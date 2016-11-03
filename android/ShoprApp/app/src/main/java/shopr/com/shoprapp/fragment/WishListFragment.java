@@ -1,9 +1,9 @@
 package shopr.com.shoprapp.fragment;
 
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.DialogFragment;
 import android.support.v4.app.Fragment;
@@ -13,7 +13,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
@@ -22,7 +21,6 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -41,26 +39,22 @@ import shopr.com.shoprapp.utils.SpinnerDialogFragment;
  */
 public class WishListFragment extends Fragment {
     private WishListAdapter adapter;
-    private Context context;
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         final View view = inflater.inflate(R.layout.wish_list_fragment_layout, container, false);
-        context = getContext();
         final List<ShoprProduct> products = new ArrayList<>();
         String url = "/user/wishlist";
         final RequestParams params = new RequestParams();
         final DialogFragment spinnerDialog = SpinnerDialogFragment.newInstance(
                 "Loading",
-                "Getting product information..."
+                "Getting wish list..."
         );
         spinnerDialog.show(getFragmentManager(), "product_spinner");
         ShoprRestClient.get(url, params, new AsyncHttpResponseHandler() {
             @Override
             public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
                 try {
-                    Log.i("WishListFragment", "Status: " + statusCode);
-                    Log.i("WishListFragment", "Body: " + new String(responseBody));
                     JSONArray response = new JSONArray(new String(responseBody));
                     for (int i = 0; i < response.length(); i++) {
                         JSONObject curObj = response.getJSONObject(i);
@@ -80,7 +74,7 @@ public class WishListFragment extends Fragment {
                         products.add(product);
                     }
                 } catch (JSONException e) {
-                    Log.e("JSONParsing", "Error parsing JSON");
+                    Log.e("WishListFragment", "Error parsing JSON");
                 } finally {
                     spinnerDialog.dismiss();
                     if (adapter != null) {
@@ -94,7 +88,7 @@ public class WishListFragment extends Fragment {
                 Snackbar.make(view, "Not logged in?", Snackbar.LENGTH_INDEFINITE).setAction("LOGIN", new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        Intent intent = new Intent(context, LoginActivity.class);
+                        Intent intent = new Intent(getContext(), LoginActivity.class);
                         startActivity(intent);
                         getActivity().finish();
                     }
@@ -108,10 +102,12 @@ public class WishListFragment extends Fragment {
         listView.setAdapter(adapter);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Toast.makeText(getActivity(), "" + position, Toast.LENGTH_SHORT).show();
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long id) {
+                DialogFragment dialog = WishListDetailDialogFragment.newInstance((ShoprProduct) adapterView.getItemAtPosition(i));
+                dialog.show(getFragmentManager(), "WishListDetailDialogFragment");
             }
         });
+
         return view;
     }
 }

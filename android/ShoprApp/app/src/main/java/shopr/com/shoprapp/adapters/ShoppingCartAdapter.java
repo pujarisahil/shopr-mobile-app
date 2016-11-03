@@ -1,8 +1,6 @@
 package shopr.com.shoprapp.adapters;
 
 import android.content.Context;
-import android.graphics.Color;
-import android.graphics.Paint;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,27 +17,28 @@ import shopr.com.shoprapp.R;
 import shopr.com.shoprapp.objects.ShoprProduct;
 
 /**
- * Created by Neil on 10/19/2016.
+ * Created by Neil on 11/2/2016.
  *
  * @author Neil Allison
  */
-public class WishListAdapter extends BaseAdapter {
-    private Context context;
-    private List<ShoprProduct> wishListItems;
 
-    public WishListAdapter(Context context, List<ShoprProduct> wishListItems) {
+public class ShoppingCartAdapter extends BaseAdapter {
+    private Context context;
+    private List<ShoprProduct> shoppingCartItems;
+
+    public ShoppingCartAdapter(Context context, List<ShoprProduct> shoppingCartItems) {
         this.context = context;
-        this.wishListItems = wishListItems;
+        this.shoppingCartItems = shoppingCartItems;
     }
 
     @Override
     public int getCount() {
-        return wishListItems.size();
+        return shoppingCartItems.size();
     }
 
     @Override
     public Object getItem(int position) {
-        return wishListItems.get(position);
+        return shoppingCartItems.get(position);
     }
 
     @Override
@@ -53,19 +52,19 @@ public class WishListAdapter extends BaseAdapter {
         CardViewHolder viewHolder;
         if (convertView == null) {
             LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            row = inflater.inflate(R.layout.wish_list_card_layout, parent, false);
+            row = inflater.inflate(R.layout.shopping_cart_card_layout, parent, false);
             viewHolder = new CardViewHolder();
-            viewHolder.nameTextView = (TextView) row.findViewById(R.id.wish_list_card_name);
-            viewHolder.regularPriceTextView = (TextView) row.findViewById(R.id.wish_list_card_regular_price);
-            viewHolder.salePriceTextView = (TextView) row.findViewById(R.id.wish_list_card_sale_price);
-            viewHolder.productImageView = (ImageView) row.findViewById(R.id.wish_list_card_image);
-            viewHolder.vendorLogoImageView = (ImageView) row.findViewById(R.id.wish_list_card_vendor_image);
+            viewHolder.nameTextView = (TextView) row.findViewById(R.id.shopping_cart_card_name);
+            viewHolder.priceTextView = (TextView) row.findViewById(R.id.shopping_cart_card_price);
+            viewHolder.quantityTextView = (TextView) row.findViewById(R.id.shopping_cart_card_quantity);
+            viewHolder.productImageView = (ImageView) row.findViewById(R.id.shopping_cart_card_image);
+            viewHolder.vendorLogoImageView = (ImageView) row.findViewById(R.id.shopping_cart_card_vendor_image);
             row.setTag(viewHolder);
         } else {
             viewHolder = (CardViewHolder) row.getTag();
         }
 
-        ShoprProduct item = wishListItems.get(position);
+        ShoprProduct item = shoppingCartItems.get(position);
 
         viewHolder.nameTextView.setText(item.getName().substring(0, Math.min(item.getName().length(), 70)));
         if (item.getName().length() > 70) {
@@ -74,17 +73,13 @@ public class WishListAdapter extends BaseAdapter {
 
         Double regularPrice = item.getRegularPrice();
         Double salePrice = item.getSalePrice();
-        String regularPriceStr = "$" + String.format(Locale.US, "%.2f", regularPrice);
-        String salePriceStr = "$" + String.format(Locale.US, "%.2f", salePrice);
+        Double price = Math.min(regularPrice, salePrice);
+        String priceStr = "$" + String.format(Locale.US, "%.2f", price);
+        viewHolder.priceTextView.setText(priceStr);
 
-        viewHolder.regularPriceTextView.setText(regularPriceStr);
-        if (salePrice < regularPrice && salePrice > 0) {
-            viewHolder.regularPriceTextView.setPaintFlags(viewHolder.regularPriceTextView.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
-            viewHolder.salePriceTextView.setText(salePriceStr);
-        } else {
-            viewHolder.salePriceTextView.setText(R.string.no_sale);
-            viewHolder.salePriceTextView.setTextColor(Color.BLACK);
-        }
+        Integer quantity = item.getQuantity();
+        String quantityStr = "Qty: " + quantity;
+        viewHolder.quantityTextView.setText(quantityStr);
 
         String thumbnailUrl = item.getThumbnailImage();
         if (thumbnailUrl != null && thumbnailUrl.length() > 0) {
@@ -105,10 +100,10 @@ public class WishListAdapter extends BaseAdapter {
         return row;
     }
 
-    private static class CardViewHolder {
+    static class CardViewHolder {
         TextView nameTextView;
-        TextView regularPriceTextView;
-        TextView salePriceTextView;
+        TextView priceTextView;
+        TextView quantityTextView;
         ImageView productImageView;
         ImageView vendorLogoImageView;
     }

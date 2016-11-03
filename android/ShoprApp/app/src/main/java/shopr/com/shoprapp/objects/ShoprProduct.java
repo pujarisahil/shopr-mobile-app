@@ -22,6 +22,7 @@ public class ShoprProduct {
     private Date ds;
     private String vendor;
     private String categoryPath;
+    private Integer quantity;
 
     public String getUpc() {
         return upc;
@@ -125,5 +126,13 @@ public class ShoprProduct {
 
     public void setCategoryPath(String categoryPath) {
         this.categoryPath = categoryPath;
+    }
+
+    public Integer getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(Integer quantity) {
+        this.quantity = quantity;
     }
 }

@@ -24,6 +24,7 @@ public class SearchDialogFragment extends DialogFragment {
     private TextInputEditText minPriceText;
     private TextInputEditText maxPriceText;
     private AppCompatSpinner orderBySpinner;
+    private AppCompatSpinner appCompatSpinner;
 
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
@@ -44,6 +45,7 @@ public class SearchDialogFragment extends DialogFragment {
 
                 Log.i("SearchDialogFragment", "Search clicked");
                 Log.i("SearchDialogFragment", queryText.getText().toString());
+                handleSearch();
             }
         })
         .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
@@ -53,5 +55,9 @@ public class SearchDialogFragment extends DialogFragment {
             }
         });
         return builder.create();
+    }
+
+    private void handleSearch() {
+
     }
 }

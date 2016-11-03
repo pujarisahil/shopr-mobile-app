@@ -2,6 +2,7 @@ package shopr.com.shoprapp.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.DialogFragment;
 import android.support.v4.app.Fragment;
@@ -110,7 +111,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
-    public boolean onNavigationItemSelected(MenuItem item) {
+    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         // Handle navigation view item clicks here.
         int id = item.getItemId();
         Class fragmentClass;
@@ -133,7 +134,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 public void onFailure(int statusCode, Header[] headers, byte[] responseBody, Throwable error) {
                 }
             });
-            Toast.makeText(getApplicationContext(), "Logged out", Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(), "Logged out", Toast.LENGTH_SHORT).show();
             Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
             startActivity(intent);
             finish();

@@ -41,8 +41,6 @@ public class LoginActivity extends AppCompatActivity {
     private TextInputEditText emailText;
     private TextInputEditText passwordText;
     private Button loginButton;
-    private TextView registerLink;
-    private TextView guestLink;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -61,7 +59,7 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
-        registerLink = (TextView) findViewById(R.id.link_register);
+        TextView registerLink = (TextView) findViewById(R.id.link_register);
         registerLink.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -70,7 +68,7 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
-        guestLink = (TextView) findViewById(R.id.link_login_guest);
+        TextView guestLink = (TextView) findViewById(R.id.link_login_guest);
         guestLink.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

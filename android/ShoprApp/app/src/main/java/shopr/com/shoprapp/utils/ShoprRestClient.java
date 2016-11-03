@@ -5,8 +5,6 @@ import android.content.Context;
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
-import com.loopj.android.http.ResponseHandlerInterface;
-import com.loopj.android.http.SyncHttpClient;
 
 import cz.msebera.android.httpclient.entity.StringEntity;
 

@@ -9,13 +9,13 @@
     android:descendantFocusability="beforeDescendants">
 
     <LinearLayout
-        android:id="@+id/wish_list_card_image_container"
+        android:id="@+id/shopping_cart_card_image_container"
         android:layout_width="0dp"
         android:layout_height="150dp"
         android:layout_weight="0.3">
 
         <ImageView
-            android:id="@+id/wish_list_card_image"
+            android:id="@+id/shopping_cart_card_image"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:padding="8dp"
@@ -24,14 +24,14 @@
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/wish_list_item_text_container"
+        android:id="@+id/shopping_cart_item_text_container"
         android:layout_width="0dp"
         android:layout_height="150dp"
         android:layout_weight="0.7"
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/wish_list_card_name"
+            android:id="@+id/shopping_cart_card_name"
             android:layout_width="match_parent"
             android:layout_height="75dp"
             android:paddingLeft="16dp"
@@ -52,7 +52,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="0.5">
                 <TextView
-                    android:id="@+id/wish_list_card_regular_price"
+                    android:id="@+id/shopping_cart_card_price"
                     android:layout_width="wrap_content"
                     android:layout_height="0dp"
                     android:layout_weight=".50"
@@ -61,18 +61,17 @@
                     android:paddingLeft="32dp"/>
 
                 <TextView
-                    android:id="@+id/wish_list_card_sale_price"
+                    android:id="@+id/shopping_cart_card_quantity"
                     android:layout_width="wrap_content"
                     android:layout_height="0dp"
                     android:layout_weight=".50"
                     android:textSize="12sp"
-                    android:textColor="#009900"
                     android:paddingLeft="32dp"/>
 
             </LinearLayout>
 
             <ImageView
-                android:id="@+id/wish_list_card_vendor_image"
+                android:id="@+id/shopping_cart_card_vendor_image"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="0.5"
