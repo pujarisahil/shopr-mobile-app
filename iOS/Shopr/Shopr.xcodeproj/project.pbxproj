@@ -7,14 +7,25 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B008805F03CA0E290DD7D677 /* Pods_Shopr.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 70492419CD3A4BC1F3323084 /* Pods_Shopr.framework */; };
+		EB322CDF1DCCC1180086E7B7 /* 4. MainPageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB322CDE1DCCC1180086E7B7 /* 4. MainPageController.swift */; };
 		EBD46F801DB5C5AD00A5443E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBD46F7F1DB5C5AD00A5443E /* AppDelegate.swift */; };
 		EBD46F821DB5C5AD00A5443E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBD46F811DB5C5AD00A5443E /* ViewController.swift */; };
 		EBD46F851DB5C5AD00A5443E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EBD46F831DB5C5AD00A5443E /* Main.storyboard */; };
 		EBD46F871DB5C5AD00A5443E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EBD46F861DB5C5AD00A5443E /* Assets.xcassets */; };
 		EBD46F8A1DB5C5AD00A5443E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EBD46F881DB5C5AD00A5443E /* LaunchScreen.storyboard */; };
+		EBD46F961DB7466100A5443E /* OnBoardingPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBD46F951DB7466100A5443E /* OnBoardingPageViewController.swift */; };
+		EBD46F9D1DB7EB0100A5443E /* 3. FormsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBD46F9C1DB7EB0100A5443E /* 3. FormsController.swift */; };
+		EBD46F9F1DB7EB2E00A5443E /* 3. FormsSignInController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBD46F9E1DB7EB2E00A5443E /* 3. FormsSignInController.swift */; };
+		EBD46FA11DB7EB4300A5443E /* 3. FormsSignUpController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBD46FA01DB7EB4300A5443E /* 3. FormsSignUpController.swift */; };
+		EBD46FA31DB87D9F00A5443E /* 2. OnBoarding - GetStarted.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBD46FA21DB87D9F00A5443E /* 2. OnBoarding - GetStarted.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5B8074DEB33493F70D0E8AA0 /* Pods-Shopr.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Shopr.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Shopr/Pods-Shopr.debug.xcconfig"; sourceTree = "<group>"; };
+		70492419CD3A4BC1F3323084 /* Pods_Shopr.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Shopr.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		775FC51C8C0424694DC3B46D /* Pods-Shopr.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Shopr.release.xcconfig"; path = "Pods/Target Support Files/Pods-Shopr/Pods-Shopr.release.xcconfig"; sourceTree = "<group>"; };
+		EB322CDE1DCCC1180086E7B7 /* 4. MainPageController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "4. MainPageController.swift"; sourceTree = "<group>"; };
 		EBD46F7C1DB5C5AD00A5443E /* Shopr.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Shopr.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EBD46F7F1DB5C5AD00A5443E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EBD46F811DB5C5AD00A5443E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -22,6 +33,11 @@
 		EBD46F861DB5C5AD00A5443E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EBD46F891DB5C5AD00A5443E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EBD46F8B1DB5C5AD00A5443E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EBD46F951DB7466100A5443E /* OnBoardingPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnBoardingPageViewController.swift; sourceTree = "<group>"; };
+		EBD46F9C1DB7EB0100A5443E /* 3. FormsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "3. FormsController.swift"; sourceTree = "<group>"; };
+		EBD46F9E1DB7EB2E00A5443E /* 3. FormsSignInController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "3. FormsSignInController.swift"; sourceTree = "<group>"; };
+		EBD46FA01DB7EB4300A5443E /* 3. FormsSignUpController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "3. FormsSignUpController.swift"; sourceTree = "<group>"; };
+		EBD46FA21DB87D9F00A5443E /* 2. OnBoarding - GetStarted.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "2. OnBoarding - GetStarted.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,17 +45,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B008805F03CA0E290DD7D677 /* Pods_Shopr.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9E28B70194455BD8F5643051 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				5B8074DEB33493F70D0E8AA0 /* Pods-Shopr.debug.xcconfig */,
+				775FC51C8C0424694DC3B46D /* Pods-Shopr.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		AA7F25313F6E5F68BD7422D2 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				70492419CD3A4BC1F3323084 /* Pods_Shopr.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		EBD46F731DB5C5AC00A5443E = {
 			isa = PBXGroup;
 			children = (
 				EBD46F7E1DB5C5AD00A5443E /* Shopr */,
 				EBD46F7D1DB5C5AD00A5443E /* Products */,
+				9E28B70194455BD8F5643051 /* Pods */,
+				AA7F25313F6E5F68BD7422D2 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -54,14 +90,60 @@
 		EBD46F7E1DB5C5AD00A5443E /* Shopr */ = {
 			isa = PBXGroup;
 			children = (
+				EBD46F9B1DB7C18800A5443E /* Helpers */,
+				EBD46F9A1DB7C18300A5443E /* Stores */,
+				EBD46F991DB7C17900A5443E /* Controllers */,
+				EBD46F981DB7C17300A5443E /* Views */,
+				EBD46F971DB7C16600A5443E /* Models */,
 				EBD46F7F1DB5C5AD00A5443E /* AppDelegate.swift */,
-				EBD46F811DB5C5AD00A5443E /* ViewController.swift */,
 				EBD46F831DB5C5AD00A5443E /* Main.storyboard */,
 				EBD46F861DB5C5AD00A5443E /* Assets.xcassets */,
 				EBD46F881DB5C5AD00A5443E /* LaunchScreen.storyboard */,
 				EBD46F8B1DB5C5AD00A5443E /* Info.plist */,
 			);
 			path = Shopr;
+			sourceTree = "<group>";
+		};
+		EBD46F971DB7C16600A5443E /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		EBD46F981DB7C17300A5443E /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				EBD46F9C1DB7EB0100A5443E /* 3. FormsController.swift */,
+				EBD46FA21DB87D9F00A5443E /* 2. OnBoarding - GetStarted.swift */,
+				EBD46F9E1DB7EB2E00A5443E /* 3. FormsSignInController.swift */,
+				EBD46FA01DB7EB4300A5443E /* 3. FormsSignUpController.swift */,
+				EB322CDE1DCCC1180086E7B7 /* 4. MainPageController.swift */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		EBD46F991DB7C17900A5443E /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				EBD46F951DB7466100A5443E /* OnBoardingPageViewController.swift */,
+				EBD46F811DB5C5AD00A5443E /* ViewController.swift */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		EBD46F9A1DB7C18300A5443E /* Stores */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Stores;
+			sourceTree = "<group>";
+		};
+		EBD46F9B1DB7C18800A5443E /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -71,9 +153,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = EBD46F8E1DB5C5AD00A5443E /* Build configuration list for PBXNativeTarget "Shopr" */;
 			buildPhases = (
+				8FCEC0E91A9C8B751A47A79E /* [CP] Check Pods Manifest.lock */,
 				EBD46F781DB5C5AD00A5443E /* Sources */,
 				EBD46F791DB5C5AD00A5443E /* Frameworks */,
 				EBD46F7A1DB5C5AD00A5443E /* Resources */,
+				2ED0506BA37AF43DE8AE577D /* [CP] Embed Pods Frameworks */,
+				FA4644499DA6BA4379D52744 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -96,6 +181,7 @@
 				TargetAttributes = {
 					EBD46F7B1DB5C5AD00A5443E = {
 						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = 8ZT7S7CLSG;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -131,13 +217,67 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		2ED0506BA37AF43DE8AE577D /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Shopr/Pods-Shopr-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8FCEC0E91A9C8B751A47A79E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		FA4644499DA6BA4379D52744 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Shopr/Pods-Shopr-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		EBD46F781DB5C5AD00A5443E /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EBD46FA31DB87D9F00A5443E /* 2. OnBoarding - GetStarted.swift in Sources */,
 				EBD46F821DB5C5AD00A5443E /* ViewController.swift in Sources */,
+				EBD46F961DB7466100A5443E /* OnBoardingPageViewController.swift in Sources */,
 				EBD46F801DB5C5AD00A5443E /* AppDelegate.swift in Sources */,
+				EBD46FA11DB7EB4300A5443E /* 3. FormsSignUpController.swift in Sources */,
+				EBD46F9F1DB7EB2E00A5443E /* 3. FormsSignInController.swift in Sources */,
+				EB322CDF1DCCC1180086E7B7 /* 4. MainPageController.swift in Sources */,
+				EBD46F9D1DB7EB0100A5443E /* 3. FormsController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -256,8 +396,10 @@
 		};
 		EBD46F8F1DB5C5AD00A5443E /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5B8074DEB33493F70D0E8AA0 /* Pods-Shopr.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				DEVELOPMENT_TEAM = 8ZT7S7CLSG;
 				INFOPLIST_FILE = Shopr/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = cs490.Shopr;
@@ -268,8 +410,10 @@
 		};
 		EBD46F901DB5C5AD00A5443E /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 775FC51C8C0424694DC3B46D /* Pods-Shopr.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				DEVELOPMENT_TEAM = 8ZT7S7CLSG;
 				INFOPLIST_FILE = Shopr/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = cs490.Shopr;
