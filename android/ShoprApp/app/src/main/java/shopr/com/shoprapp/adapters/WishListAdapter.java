@@ -82,6 +82,7 @@ public class WishListAdapter extends BaseAdapter {
             viewHolder.regularPriceTextView.setPaintFlags(viewHolder.regularPriceTextView.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
             viewHolder.salePriceTextView.setText(salePriceStr);
         } else {
+            viewHolder.regularPriceTextView.setPaintFlags(viewHolder.regularPriceTextView.getPaintFlags() & (~ Paint.STRIKE_THRU_TEXT_FLAG));
             viewHolder.salePriceTextView.setText(R.string.no_sale);
             viewHolder.salePriceTextView.setTextColor(Color.BLACK);
         }
@@ -90,7 +91,7 @@ public class WishListAdapter extends BaseAdapter {
         if (thumbnailUrl != null && thumbnailUrl.length() > 0) {
             Picasso.with(context).load(thumbnailUrl).into(viewHolder.productImageView);
         } else {
-            viewHolder.productImageView.setImageResource(R.drawable.ic_menu_camera);
+            viewHolder.productImageView.setImageResource(R.drawable.no_image);
         }
 
         String vendor = item.getVendor();

@@ -19,6 +19,7 @@
     <string name="no_sale">No Sale</string>
 
     <string-array name="search_order_by_array">
+        <item>Order by (Optional)</item>
         <item>Popularity</item>
         <item>Ratings</item>
         <item>Price Low to High</item>
@@ -26,6 +27,7 @@
     </string-array>
 
     <string-array name="search_categories_array">
+        <item>Category (Optional)</item>
         <item>All</item>
         <item>Appliances</item>
         <item>Computers</item>

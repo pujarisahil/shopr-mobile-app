@@ -2,17 +2,17 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="16dp">
+    android:padding="16dp"
+    android:focusableInTouchMode="true">
     <TextView
         android:layout_width="match_parent"
         android:layout_height="48dp"
         android:text="Find a Product"
-        android:textSize="24dp"/>
+        android:textSize="24dp"
+        android:textAlignment="center"/>
     <android.support.design.widget.TextInputLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="8dp">
+        android:layout_height="wrap_content">
         <android.support.design.widget.TextInputEditText
             android:id="@+id/input_search_query"
             android:layout_width="match_parent"
@@ -24,14 +24,13 @@
     <android.support.design.widget.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
         android:layout_marginBottom="8dp">
         <android.support.design.widget.TextInputEditText
             android:id="@+id/input_search_min_price"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="numberDecimal"
-            android:hint="Min Price(Optional)"/>
+            android:hint="Min Price (Optional)"/>
     </android.support.design.widget.TextInputLayout>
 
     <android.support.design.widget.TextInputLayout
@@ -44,7 +43,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="numberDecimal"
-            android:hint="Max Price(Optional)"/>
+            android:hint="Max Price (Optional)"/>
     </android.support.design.widget.TextInputLayout>
 
     <android.support.v7.widget.AppCompatSpinner

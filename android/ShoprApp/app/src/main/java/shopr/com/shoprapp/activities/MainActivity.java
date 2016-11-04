@@ -52,7 +52,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             fab.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    DialogFragment dialog = new SearchDialogFragment();
+                    DialogFragment dialog = SearchDialogFragment.newInstance(getSupportFragmentManager());
                     dialog.show(getSupportFragmentManager(), "SearchDialogFragment");
                 }
             });

@@ -85,7 +85,7 @@ public class ShoppingCartAdapter extends BaseAdapter {
         if (thumbnailUrl != null && thumbnailUrl.length() > 0) {
             Picasso.with(context).load(thumbnailUrl).into(viewHolder.productImageView);
         } else {
-            viewHolder.productImageView.setImageResource(R.drawable.ic_menu_camera);
+            viewHolder.productImageView.setImageResource(R.drawable.no_image);
         }
 
         String vendor = item.getVendor();
