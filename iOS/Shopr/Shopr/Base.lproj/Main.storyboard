@@ -1,16 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="ZqC-hQ-cTO">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--1. Splash Screen-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Shopr" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="1. Splash Screen" id="BYZ-38-t0r" customClass="ViewController" customModule="Shopr" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -19,13 +22,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg" translatesAutoresizingMaskIntoConstraints="NO" id="Udm-C9-08H">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="1. Splash Screen/bg" translatesAutoresizingMaskIntoConstraints="NO" id="Udm-C9-08H">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="Udm-C9-08H" secondAttribute="height" multiplier="375:667" id="Gyr-Lz-kim"/>
                                 </constraints>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="shoprLogo" translatesAutoresizingMaskIntoConstraints="NO" id="5xF-hy-L8F">
-                                <frame key="frameInset" minX="205" minY="503" width="113" height="114"/>
+                            <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="1. Splash Screen/shoprLogo" translatesAutoresizingMaskIntoConstraints="NO" id="5xF-hy-L8F">
+                                <rect key="frame" x="205" y="503" width="113" height="114"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                         </subviews>
@@ -45,9 +49,386 @@
             </objects>
             <point key="canvasLocation" x="136.80000000000001" y="137.18140929535232"/>
         </scene>
+        <!--2. OnBoarding - Page 1-->
+        <scene sceneID="IiC-we-J7f">
+            <objects>
+                <viewController storyboardIdentifier="2ndPageOne" title="2. OnBoarding - Page 1" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Hf8-fn-5h9" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="yft-zd-a64"/>
+                        <viewControllerLayoutGuide type="bottom" id="BLg-Rj-KuJ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="6gO-8m-D21">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="2. On-Boarding/bg" translatesAutoresizingMaskIntoConstraints="NO" id="EXz-bK-w0k">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="EXz-bK-w0k" secondAttribute="height" multiplier="375:667" id="Zse-bE-GJT"/>
+                                </constraints>
+                            </imageView>
+                            <pageControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="DqN-bR-zhI">
+                                <rect key="frame" x="168" y="610" width="39" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </pageControl>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="1. Splash Screen/shoprLogo" translatesAutoresizingMaskIntoConstraints="NO" id="2Oo-2z-DZ7">
+                                <rect key="frame" x="131" y="119" width="113" height="114"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Find the best deals and the best sales currently." textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="F5D-GZ-hdr">
+                                <rect key="frame" x="69" y="424" width="237" height="75"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="textColor" red="0.9957081715940681" green="1" blue="0.98043405109141168" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="17"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="EXz-bK-w0k" firstAttribute="leading" secondItem="6gO-8m-D21" secondAttribute="leading" id="DCS-ub-8tq"/>
+                            <constraint firstItem="BLg-Rj-KuJ" firstAttribute="top" secondItem="EXz-bK-w0k" secondAttribute="bottom" id="PPx-6i-Ful"/>
+                            <constraint firstItem="EXz-bK-w0k" firstAttribute="top" secondItem="6gO-8m-D21" secondAttribute="top" id="fWR-BF-IVO"/>
+                            <constraint firstAttribute="trailing" secondItem="EXz-bK-w0k" secondAttribute="trailing" id="kvb-j6-i9q"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="a8E-g3-FDX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1025" y="922"/>
+        </scene>
+        <!--2. OnBoarding-->
+        <scene sceneID="lxo-U8-2W0">
+            <objects>
+                <pageViewController storyboardIdentifier="2ndScreen-OnBoarding" title="2. OnBoarding" modalTransitionStyle="crossDissolve" useStoryboardIdentifierAsRestorationIdentifier="YES" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="D02-fW-eyy" customClass="OnBoardingPageViewController" customModule="Shopr" customModuleProvider="target" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8Qy-Wd-dbJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1025" y="137"/>
+        </scene>
+        <!--3. Forms-->
+        <scene sceneID="Pqf-mC-H9h">
+            <objects>
+                <viewController storyboardIdentifier="formsMain" title="3. Forms" useStoryboardIdentifierAsRestorationIdentifier="YES" id="zO5-XG-t0G" customClass="FormsController" customModule="Shopr" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="hcN-hQ-By0"/>
+                        <viewControllerLayoutGuide type="bottom" id="bdy-JR-1MR"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="57C-hF-5u1">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="3. Forms/bg" translatesAutoresizingMaskIntoConstraints="NO" id="wIS-eo-8Ig">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="wIS-eo-8Ig" secondAttribute="height" multiplier="375:667" id="32F-qK-fZj"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8q1-YE-xd3">
+                                <rect key="frame" x="16" y="534" width="343" height="58"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="3. Forms/sign-in-facebook"/>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="1. Splash Screen/shoprLogo" translatesAutoresizingMaskIntoConstraints="NO" id="Xf0-80-O0r">
+                                <rect key="frame" x="131" y="150" width="113" height="114"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LcJ-4R-dph">
+                                <rect key="frame" x="16" y="457" width="343" height="58"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="3. Forms/sign-up"/>
+                                <connections>
+                                    <action selector="signUpWithSender:" destination="zO5-XG-t0G" eventType="touchUpInside" id="9W4-hw-seF"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8jJ-ho-7qQ">
+                                <rect key="frame" x="91" y="617" width="192" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Already have account?">
+                                    <color key="titleColor" red="0.96948991427937958" green="0.99459315059070486" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="signInSender:" destination="zO5-XG-t0G" eventType="touchUpInside" id="rZF-pe-ZYj"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="bdy-JR-1MR" firstAttribute="top" secondItem="wIS-eo-8Ig" secondAttribute="bottom" id="1XW-Zn-ZPe"/>
+                            <constraint firstItem="wIS-eo-8Ig" firstAttribute="top" secondItem="57C-hF-5u1" secondAttribute="top" id="LQq-mG-EyQ"/>
+                            <constraint firstItem="wIS-eo-8Ig" firstAttribute="leading" secondItem="57C-hF-5u1" secondAttribute="leading" id="WlD-Px-LDu"/>
+                            <constraint firstAttribute="trailing" secondItem="wIS-eo-8Ig" secondAttribute="trailing" id="jOj-E2-w1z"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="f0N-PC-zMQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1957.5999999999999" y="136.28185907046478"/>
+        </scene>
+        <!--3. Forms - Sign Up-->
+        <scene sceneID="XLu-Sg-VtC">
+            <objects>
+                <viewController storyboardIdentifier="signUpForm" title="3. Forms - Sign Up" useStoryboardIdentifierAsRestorationIdentifier="YES" id="L3j-nP-kdy" customClass="FormsSignUpController" customModule="Shopr" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="gwt-ZZ-uuC"/>
+                        <viewControllerLayoutGuide type="bottom" id="8Tg-Vh-tyS"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="zyW-NO-KGT">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="3. Forms/sign-up-bg" translatesAutoresizingMaskIntoConstraints="NO" id="WU6-qO-N7h">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="297"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nao-cN-xE7">
+                                <rect key="frame" x="0.0" y="607" width="375" height="60"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="3. Forms/sign-in-button"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iXp-A0-N4Z" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2836" y="136.28185907046478"/>
+        </scene>
+        <!--3. Forms - Sign In-->
+        <scene sceneID="uZv-XO-EYA">
+            <objects>
+                <viewController storyboardIdentifier="signInForm" title="3. Forms - Sign In" useStoryboardIdentifierAsRestorationIdentifier="YES" id="ZqC-hQ-cTO" customClass="FormsSignInController" customModule="Shopr" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="AKu-ek-dL8"/>
+                        <viewControllerLayoutGuide type="bottom" id="5Wk-wE-LZk"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="1YS-iT-18T">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="3. Forms/bg" translatesAutoresizingMaskIntoConstraints="NO" id="O4H-JR-NMV">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nqn-YS-Uid">
+                                <rect key="frame" x="89" y="617" width="192" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Don't have an account?">
+                                    <color key="titleColor" red="0.96948991429999998" green="0.99459315059999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="signUpWithSender:" destination="ZqC-hQ-cTO" eventType="touchUpInside" id="vMJ-8Y-NHU"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wLA-Va-hTK">
+                                <rect key="frame" x="40" y="447" width="291" height="49"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="3. Forms/sign-in-button"/>
+                                <connections>
+                                    <action selector="signInSender:" destination="ZqC-hQ-cTO" eventType="touchUpInside" id="giF-3X-m72"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Password" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XKb-Vq-gcp">
+                                <rect key="frame" x="40" y="382" width="291" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="textColor" red="0.99314750009999997" green="1" blue="0.98841935569999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                            </textField>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="1. Splash Screen/shoprLogo" translatesAutoresizingMaskIntoConstraints="NO" id="Bgx-UG-3Wf">
+                                <rect key="frame" x="131" y="158" width="113" height="114"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Username" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UO4-DU-VHV">
+                                <rect key="frame" x="40" y="318" width="291" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="textColor" red="0.99314750010170605" green="1" blue="0.98841935573663919" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VsX-5q-Szz">
+                                <rect key="frame" x="40" y="515" width="291" height="49"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="3. Forms/sign-in-facebook"/>
+                            </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="nY4-7l-BqZ">
+                                <rect key="frame" x="40" y="281" width="291" height="29"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="passwordField" destination="XKb-Vq-gcp" id="1Ja-Ks-ffh"/>
+                        <outlet property="usernameField" destination="UO4-DU-VHV" id="fFo-gC-2EU"/>
+                        <outlet property="warningMessage" destination="nY4-7l-BqZ" id="Fql-4v-Zsh"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="J3B-GJ-UW9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3712.8000000000002" y="135.38230884557723"/>
+        </scene>
+        <!--Main Page Controller-->
+        <scene sceneID="3m1-fj-L0l">
+            <objects>
+                <viewController storyboardIdentifier="mainPage" useStoryboardIdentifierAsRestorationIdentifier="YES" id="BPO-UY-7xa" customClass="MainPageController" customModule="Shopr" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="tKN-9f-RRO"/>
+                        <viewControllerLayoutGuide type="bottom" id="r4M-o2-PLt"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="kf5-KI-vfe">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="45L-sv-kef" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4596" y="136.28185907046478"/>
+        </scene>
+        <!--Table View Controller-->
+        <scene sceneID="fvm-Uv-3U0">
+            <objects>
+                <tableViewController id="FUZ-V0-XA8" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="172" sectionHeaderHeight="28" sectionFooterHeight="28" id="Aaf-Ut-eoe">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="172" id="rN5-sC-K22">
+                                <rect key="frame" x="0.0" y="28" width="375" height="172"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="rN5-sC-K22" id="JkA-n0-ZQA">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="171"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="FUZ-V0-XA8" id="auS-H2-wFn"/>
+                            <outlet property="delegate" destination="FUZ-V0-XA8" id="qtJ-tv-SYn"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MVO-Mj-rp1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5378.3999999999996" y="137.18140929535232"/>
+        </scene>
+        <!--2. OnBoarding - Page 2-->
+        <scene sceneID="JXX-2E-E0u">
+            <objects>
+                <viewController storyboardIdentifier="2ndPageTwo" title="2. OnBoarding - Page 2" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Fls-SC-7sT" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="3DI-Xj-bSd"/>
+                        <viewControllerLayoutGuide type="bottom" id="WvA-HJ-b0D"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="f8K-7u-dyC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="2. On-Boarding/bg" translatesAutoresizingMaskIntoConstraints="NO" id="NAb-Zf-4RX">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="NAb-Zf-4RX" secondAttribute="height" multiplier="375:667" id="ZqT-xX-aXk"/>
+                                </constraints>
+                            </imageView>
+                            <pageControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" currentPage="1" translatesAutoresizingMaskIntoConstraints="NO" id="Z7R-Ww-Jjv">
+                                <rect key="frame" x="168" y="610" width="39" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </pageControl>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="1. Splash Screen/shoprLogo" translatesAutoresizingMaskIntoConstraints="NO" id="aUn-9m-we6">
+                                <rect key="frame" x="131" y="119" width="113" height="114"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Compare listing across vendors and choose as per your preferenece." textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="w6Q-zb-7bB">
+                                <rect key="frame" x="69" y="424" width="237" height="78"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="textColor" red="0.99570817160000002" green="1" blue="0.98043405110000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="17"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="NAb-Zf-4RX" firstAttribute="top" secondItem="f8K-7u-dyC" secondAttribute="top" id="99j-h5-0mp"/>
+                            <constraint firstItem="NAb-Zf-4RX" firstAttribute="leading" secondItem="f8K-7u-dyC" secondAttribute="leading" id="B2H-Wx-Ssf"/>
+                            <constraint firstItem="WvA-HJ-b0D" firstAttribute="top" secondItem="NAb-Zf-4RX" secondAttribute="bottom" id="JBc-OU-j8I"/>
+                            <constraint firstAttribute="trailing" secondItem="NAb-Zf-4RX" secondAttribute="trailing" id="npf-zb-SKv"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="que-uV-Dnb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1025" y="1734"/>
+        </scene>
+        <!--2. OnBoarding - Page 3-->
+        <scene sceneID="rGV-eo-quD">
+            <objects>
+                <viewController storyboardIdentifier="2ndPageThree" title="2. OnBoarding - Page 3" useStoryboardIdentifierAsRestorationIdentifier="YES" id="YfX-qD-oBN" customClass="GetStartedController" customModule="Shopr" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="3wf-Pb-Ras"/>
+                        <viewControllerLayoutGuide type="bottom" id="J5I-Os-VyO"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="XaH-Tp-P2w">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="2. On-Boarding/bg" translatesAutoresizingMaskIntoConstraints="NO" id="WJI-7U-KV3">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="WJI-7U-KV3" secondAttribute="height" multiplier="375:667" id="xbY-uT-tEd"/>
+                                </constraints>
+                            </imageView>
+                            <pageControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" currentPage="2" translatesAutoresizingMaskIntoConstraints="NO" id="UD6-9h-qwv">
+                                <rect key="frame" x="168" y="610" width="39" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </pageControl>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vaf-Ld-J0W">
+                                <rect key="frame" x="90" y="554" width="194" height="48"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="2. On-Boarding/get-started"/>
+                                <connections>
+                                    <action selector="transitionView:" destination="YfX-qD-oBN" eventType="touchUpInside" id="idd-zE-Kig"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="1. Splash Screen/shoprLogo" translatesAutoresizingMaskIntoConstraints="NO" id="OK5-hO-hCT">
+                                <rect key="frame" x="131" y="119" width="113" height="114"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="You're only one click away to a great platform." textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="yl1-8S-hJO">
+                                <rect key="frame" x="69" y="424" width="237" height="75"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="textColor" red="0.99570817160000002" green="1" blue="0.98043405110000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="17"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="WJI-7U-KV3" secondAttribute="trailing" id="9Ma-3O-8nd"/>
+                            <constraint firstItem="J5I-Os-VyO" firstAttribute="top" secondItem="WJI-7U-KV3" secondAttribute="bottom" id="Jfi-CB-SpO"/>
+                            <constraint firstItem="WJI-7U-KV3" firstAttribute="top" secondItem="XaH-Tp-P2w" secondAttribute="top" id="kD9-Wz-hdG"/>
+                            <constraint firstItem="WJI-7U-KV3" firstAttribute="leading" secondItem="XaH-Tp-P2w" secondAttribute="leading" id="lPi-54-aro"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="getStartedButton" destination="Vaf-Ld-J0W" id="rq0-dC-ejS"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jHB-2k-JFg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1025" y="2545"/>
+        </scene>
     </scenes>
     <resources>
-        <image name="bg" width="1562" height="2777"/>
-        <image name="shoprLogo" width="227" height="228"/>
+        <image name="1. Splash Screen/bg" width="1562" height="2777"/>
+        <image name="1. Splash Screen/shoprLogo" width="227" height="228"/>
+        <image name="2. On-Boarding/bg" width="1562" height="2779"/>
+        <image name="2. On-Boarding/get-started" width="370" height="88"/>
+        <image name="3. Forms/bg" width="1562" height="2779"/>
+        <image name="3. Forms/sign-in-button" width="1562" height="250"/>
+        <image name="3. Forms/sign-in-facebook" width="1354" height="208"/>
+        <image name="3. Forms/sign-up" width="1354" height="208"/>
+        <image name="3. Forms/sign-up-bg" width="750" height="705"/>
     </resources>
 </document>

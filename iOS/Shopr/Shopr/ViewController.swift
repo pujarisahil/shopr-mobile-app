@@ -14,11 +14,14 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-        
-        UIView.animate(withDuration: 1.0, delay: 1.0, options: UIViewAnimationOptions.curveEaseIn, animations: {
-                self.logo.alpha = 1.0
-            }, completion: nil)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        UIView.animate(withDuration: 1.3, delay: 1.3, options: UIViewAnimationOptions.curveEaseIn, animations: {
+            self.logo.alpha = 1.0
+            }, completion: {finished in
+                self.transition()
+            })
     }
 
     override func didReceiveMemoryWarning() {
@@ -26,4 +29,8 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    func transition() {
+        let onBoardingPageViewController:OnBoardingPageViewController = OnBoardingPageViewController()
+        self.present(onBoardingPageViewController, animated: true, completion: nil)
+    }
 }
