@@ -1,0 +1,42 @@
+<resources>
+    <string name="app_name">ShoprApp</string>
+    <string name="title_activity_home">HomeActivity</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+
+    <!-- Page Titles -->
+    <string name="home_title">Home</string>
+    <string name="shopping_cart_title">Shopping Cart</string>
+    <string name="wish_list_title">Wish List</string>
+    <string name="feedback_title">Feedback</string>
+    <string name="logout_title">Logout</string>
+
+    <string name="facebook_app_id">878577035610496</string>
+
+    <string name="no_sale">No Sale</string>
+    <string name="no_description">No Description</string>
+
+    <string name="qty">Qty</string>
+    <string name="quantity">Qty:</string>
+    <string name="product_image">Product image</string>
+
+    <string-array name="search_order_by_array">
+        <item>Order by (Optional)</item>
+        <item>Popularity</item>
+        <item>Ratings</item>
+        <item>Price Low to High</item>
+        <item>Price High to Low</item>
+    </string-array>
+
+    <string-array name="search_categories_array">
+        <item>Category (Optional)</item>
+        <item>All</item>
+        <item>Appliances</item>
+        <item>Computers</item>
+        <item>Phones</item>
+        <item>TVs</item>
+    </string-array>
+</resources>

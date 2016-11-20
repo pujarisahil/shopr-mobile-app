@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_home"
+            android:title="@string/home_title"
+            android:checked="true"/>
+        <item
+            android:id="@+id/nav_cart"
+            android:title="@string/shopping_cart_title"/>
+        <item
+            android:id="@+id/nav_wish"
+            android:title="@string/wish_list_title"/>
+        <item
+            android:id="@+id/nav_feedback"
+            android:title="@string/feedback_title"/>
+        <item
+            android:id="@+id/nav_logout"
+            android:title="@string/logout_title"/>
+    </group>
+
+</menu>
