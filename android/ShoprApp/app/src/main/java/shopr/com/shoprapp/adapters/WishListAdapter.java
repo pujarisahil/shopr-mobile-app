@@ -3,6 +3,7 @@ package shopr.com.shoprapp.adapters;
 import android.content.Context;
 import android.graphics.Color;
 import android.graphics.Paint;
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.DialogFragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.widget.RecyclerView;
@@ -12,15 +13,23 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.squareup.picasso.Picasso;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
+import cz.msebera.android.httpclient.Header;
+import cz.msebera.android.httpclient.entity.StringEntity;
 import shopr.com.shoprapp.R;
 import shopr.com.shoprapp.fragment.WishListDetailDialogFragment;
 import shopr.com.shoprapp.objects.ShoprProduct;
+import shopr.com.shoprapp.utils.ShoprRestClient;
 
 /**
  * Created by Neil on 10/19/2016.
@@ -49,7 +58,7 @@ public class WishListAdapter extends RecyclerView.Adapter {
             @Override
             public void onClick(View view) {
                 int productIndex = recyclerView.indexOfChild(view);
-                DialogFragment dialog = WishListDetailDialogFragment.newInstance(wishListItems.get(productIndex));
+                DialogFragment dialog = WishListDetailDialogFragment.newInstance(WishListAdapter.this, wishListItems.get(productIndex));
                 dialog.show(fragmentManager, "WishListDetailDialogFragment");
             }
         });
@@ -107,16 +116,45 @@ public class WishListAdapter extends RecyclerView.Adapter {
         return wishListItems.size();
     }
 
-    public void remove(int position) {
-        ShoprProduct item = wishListItems.get(position);
-        if (itemsPendingRemoval.contains(item)) {
-            itemsPendingRemoval.remove(item);
-        }
+    public List<ShoprProduct> getWishListItems() {
+        return wishListItems;
+    }
 
-        if (wishListItems.contains(item)) {
-            wishListItems.remove(position);
-            notifyItemRemoved(position);
+    public void remove(final int position) {
+        final ShoprProduct item = wishListItems.get(position);
+
+        String upc = item.getUpc();
+        String vendor = item.getVendor();
+        String url = "/user/wishlist-remove";
+        JSONObject params = new JSONObject();
+        StringEntity entity = null;
+        try {
+            params.put("upc", upc);
+            params.put("vendor", vendor);
+            entity = new StringEntity(params.toString());
+        } catch (JSONException | UnsupportedEncodingException e) {
+            e.printStackTrace();
         }
+        ShoprRestClient.post(context, url, entity, "application/json", new AsyncHttpResponseHandler() {
+            @Override
+            public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
+                if (itemsPendingRemoval.contains(item)) {
+                    itemsPendingRemoval.remove(item);
+                }
+
+                if (wishListItems.contains(item)) {
+                    wishListItems.remove(position);
+                    notifyItemRemoved(position);
+                }
+
+                Snackbar.make(recyclerView, "Product removed from wishlist", Snackbar.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onFailure(int statusCode, Header[] headers, byte[] responseBody, Throwable error) {
+                Snackbar.make(recyclerView, "Failed to remove product", Snackbar.LENGTH_LONG).show();
+            }
+        });
     }
 
     public boolean isPendingRemoval(int position) {

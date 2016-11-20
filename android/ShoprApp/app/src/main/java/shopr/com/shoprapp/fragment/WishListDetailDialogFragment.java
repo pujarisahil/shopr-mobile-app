@@ -19,6 +19,7 @@ import com.squareup.picasso.Picasso;
 import java.util.Locale;
 
 import shopr.com.shoprapp.R;
+import shopr.com.shoprapp.adapters.WishListAdapter;
 import shopr.com.shoprapp.objects.ShoprProduct;
 
 /**
@@ -28,11 +29,17 @@ import shopr.com.shoprapp.objects.ShoprProduct;
  */
 public class WishListDetailDialogFragment extends DialogFragment {
     private ShoprProduct shoprProduct;
+    private WishListAdapter wishListAdapter;
 
-    public static WishListDetailDialogFragment newInstance(ShoprProduct shoprProduct) {
+    public static WishListDetailDialogFragment newInstance(WishListAdapter wishListAdapter, ShoprProduct shoprProduct) {
         WishListDetailDialogFragment fragment = new WishListDetailDialogFragment();
+        fragment.setWishListAdapter(wishListAdapter);
         fragment.setShoprProduct(shoprProduct);
         return fragment;
+    }
+
+    public void setWishListAdapter(WishListAdapter wishListAdapter) {
+        this.wishListAdapter = wishListAdapter;
     }
 
     public void setShoprProduct(ShoprProduct shoprProduct) {
@@ -102,8 +109,7 @@ public class WishListDetailDialogFragment extends DialogFragment {
         builder.setNegativeButton("Remove", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
-                // TODO: remove from wish list
-                Toast.makeText(getContext(), "Remove From Wishlist Sprint 3", Toast.LENGTH_LONG).show();
+                wishListAdapter.remove(wishListAdapter.getWishListItems().indexOf(shoprProduct));
             }
         });
 
