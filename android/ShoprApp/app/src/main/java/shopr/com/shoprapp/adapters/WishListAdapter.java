@@ -14,6 +14,7 @@ import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
@@ -31,12 +32,14 @@ public class WishListAdapter extends RecyclerView.Adapter {
     private FragmentManager fragmentManager;
     private RecyclerView recyclerView;
     private List<ShoprProduct> wishListItems;
+    private List<ShoprProduct> itemsPendingRemoval;
 
     public WishListAdapter(Context context, FragmentManager fragmentManager, RecyclerView recyclerView, List<ShoprProduct> wishListItems) {
         this.context = context;
         this.fragmentManager = fragmentManager;
         this.recyclerView = recyclerView;
         this.wishListItems = wishListItems;
+        itemsPendingRemoval = new ArrayList<>();
     }
 
     @Override
@@ -102,6 +105,23 @@ public class WishListAdapter extends RecyclerView.Adapter {
     @Override
     public int getItemCount() {
         return wishListItems.size();
+    }
+
+    public void remove(int position) {
+        ShoprProduct item = wishListItems.get(position);
+        if (itemsPendingRemoval.contains(item)) {
+            itemsPendingRemoval.remove(item);
+        }
+
+        if (wishListItems.contains(item)) {
+            wishListItems.remove(position);
+            notifyItemRemoved(position);
+        }
+    }
+
+    public boolean isPendingRemoval(int position) {
+        ShoprProduct item = wishListItems.get(position);
+        return itemsPendingRemoval.contains(item);
     }
 
     private class CardViewHolder extends RecyclerView.ViewHolder {
