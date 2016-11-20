@@ -3,10 +3,12 @@ package shopr.com.shoprapp.adapters;
 import android.content.Context;
 import android.graphics.Color;
 import android.graphics.Paint;
+import android.support.v4.app.DialogFragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -16,6 +18,7 @@ import java.util.List;
 import java.util.Locale;
 
 import shopr.com.shoprapp.R;
+import shopr.com.shoprapp.fragment.WishListDetailDialogFragment;
 import shopr.com.shoprapp.objects.ShoprProduct;
 
 /**
@@ -23,53 +26,41 @@ import shopr.com.shoprapp.objects.ShoprProduct;
  *
  * @author Neil Allison
  */
-public class WishListAdapter extends BaseAdapter {
+public class WishListAdapter extends RecyclerView.Adapter {
     private Context context;
+    private FragmentManager fragmentManager;
+    private RecyclerView recyclerView;
     private List<ShoprProduct> wishListItems;
 
-    public WishListAdapter(Context context, List<ShoprProduct> wishListItems) {
+    public WishListAdapter(Context context, FragmentManager fragmentManager, RecyclerView recyclerView, List<ShoprProduct> wishListItems) {
         this.context = context;
+        this.fragmentManager = fragmentManager;
+        this.recyclerView = recyclerView;
         this.wishListItems = wishListItems;
     }
 
     @Override
-    public int getCount() {
-        return wishListItems.size();
+    public CardViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.wish_list_card_layout, parent, false);
+        view.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                int productIndex = recyclerView.indexOfChild(view);
+                DialogFragment dialog = WishListDetailDialogFragment.newInstance(wishListItems.get(productIndex));
+                dialog.show(fragmentManager, "WishListDetailDialogFragment");
+            }
+        });
+
+        return new CardViewHolder(view);
     }
 
     @Override
-    public Object getItem(int position) {
-        return wishListItems.get(position);
-    }
-
-    @Override
-    public long getItemId(int position) {
-        return position;
-    }
-
-    @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
-        View row = convertView;
-        CardViewHolder viewHolder;
-        if (convertView == null) {
-            LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            row = inflater.inflate(R.layout.wish_list_card_layout, parent, false);
-            viewHolder = new CardViewHolder();
-            viewHolder.nameTextView = (TextView) row.findViewById(R.id.wish_list_card_name);
-            viewHolder.regularPriceTextView = (TextView) row.findViewById(R.id.wish_list_card_regular_price);
-            viewHolder.salePriceTextView = (TextView) row.findViewById(R.id.wish_list_card_sale_price);
-            viewHolder.productImageView = (ImageView) row.findViewById(R.id.wish_list_card_image);
-            viewHolder.vendorLogoImageView = (ImageView) row.findViewById(R.id.wish_list_card_vendor_image);
-            row.setTag(viewHolder);
-        } else {
-            viewHolder = (CardViewHolder) row.getTag();
-        }
-
+    public void onBindViewHolder(RecyclerView.ViewHolder viewHolder, int position) {
         ShoprProduct item = wishListItems.get(position);
 
-        viewHolder.nameTextView.setText(item.getName().substring(0, Math.min(item.getName().length(), 70)));
+        ((CardViewHolder) viewHolder).nameTextView.setText(item.getName().substring(0, Math.min(item.getName().length(), 70)));
         if (item.getName().length() > 70) {
-            viewHolder.nameTextView.append("...");
+            ((CardViewHolder) viewHolder).nameTextView.append("...");
         }
 
         Double regularPrice = item.getRegularPrice();
@@ -77,40 +68,53 @@ public class WishListAdapter extends BaseAdapter {
         String regularPriceStr = "$" + String.format(Locale.US, "%.2f", regularPrice);
         String salePriceStr = "$" + String.format(Locale.US, "%.2f", salePrice);
 
-        viewHolder.regularPriceTextView.setText(regularPriceStr);
+        ((CardViewHolder) viewHolder).regularPriceTextView.setText(regularPriceStr);
         if (salePrice < regularPrice && salePrice > 0) {
-            viewHolder.regularPriceTextView.setPaintFlags(viewHolder.regularPriceTextView.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
-            viewHolder.salePriceTextView.setText(salePriceStr);
+            ((CardViewHolder) viewHolder).regularPriceTextView.setPaintFlags(
+                    ((CardViewHolder) viewHolder).regularPriceTextView.getPaintFlags()
+                            | Paint.STRIKE_THRU_TEXT_FLAG);
+            ((CardViewHolder) viewHolder).salePriceTextView.setText(salePriceStr);
         } else {
-            viewHolder.regularPriceTextView.setPaintFlags(viewHolder.regularPriceTextView.getPaintFlags() & (~ Paint.STRIKE_THRU_TEXT_FLAG));
-            viewHolder.salePriceTextView.setText(R.string.no_sale);
-            viewHolder.salePriceTextView.setTextColor(Color.BLACK);
+            ((CardViewHolder) viewHolder).regularPriceTextView.setPaintFlags(
+                    ((CardViewHolder) viewHolder).regularPriceTextView.getPaintFlags()
+                            & (~ Paint.STRIKE_THRU_TEXT_FLAG));
+            ((CardViewHolder) viewHolder).salePriceTextView.setText(R.string.no_sale);
+            ((CardViewHolder) viewHolder).salePriceTextView.setTextColor(Color.BLACK);
         }
 
         String thumbnailUrl = item.getThumbnailImage();
         if (thumbnailUrl != null && thumbnailUrl.length() > 0) {
-            Picasso.with(context).load(thumbnailUrl).into(viewHolder.productImageView);
+            Picasso.with(context).load(thumbnailUrl).into(((CardViewHolder) viewHolder).productImageView);
         } else {
-            viewHolder.productImageView.setImageResource(R.drawable.no_image);
+            ((CardViewHolder) viewHolder).productImageView.setImageResource(R.drawable.no_image);
         }
 
         String vendor = item.getVendor();
         if (vendor != null) {
             if (vendor.equals("BESTBUY")) {
-                viewHolder.vendorLogoImageView.setImageResource(R.drawable.bestbuy_logo);
+                ((CardViewHolder) viewHolder).vendorLogoImageView.setImageResource(R.drawable.bestbuy_logo);
             } else if (vendor.equals("WALMART")) {
-                viewHolder.vendorLogoImageView.setImageResource(R.drawable.walmart_logo);
+                ((CardViewHolder) viewHolder).vendorLogoImageView.setImageResource(R.drawable.walmart_logo);
             }
         }
-
-        return row;
     }
 
-    private static class CardViewHolder {
-        TextView nameTextView;
-        TextView regularPriceTextView;
-        TextView salePriceTextView;
-        ImageView productImageView;
-        ImageView vendorLogoImageView;
+    @Override
+    public int getItemCount() {
+        return wishListItems.size();
+    }
+
+    private class CardViewHolder extends RecyclerView.ViewHolder {
+        TextView nameTextView, regularPriceTextView, salePriceTextView;
+        ImageView productImageView, vendorLogoImageView;
+
+        CardViewHolder(View itemView) {
+            super(itemView);
+            nameTextView = (TextView) itemView.findViewById(R.id.wish_list_card_name);
+            regularPriceTextView = (TextView) itemView.findViewById(R.id.wish_list_card_regular_price);
+            salePriceTextView = (TextView) itemView.findViewById(R.id.wish_list_card_sale_price);
+            productImageView = (ImageView) itemView.findViewById(R.id.wish_list_card_image);
+            vendorLogoImageView = (ImageView) itemView.findViewById(R.id.wish_list_card_vendor_image);
+        }
     }
 }

@@ -7,6 +7,8 @@ import android.support.annotation.Nullable;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.DialogFragment;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -97,16 +99,12 @@ public class WishListFragment extends Fragment {
             }
         });
 
-        ListView listView = (ListView) view.findViewById(R.id.wish_list_fragment_list_view);
-        adapter = new WishListAdapter(this.getContext(), products);
-        listView.setAdapter(adapter);
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long id) {
-                DialogFragment dialog = WishListDetailDialogFragment.newInstance((ShoprProduct) adapterView.getItemAtPosition(i));
-                dialog.show(getFragmentManager(), "WishListDetailDialogFragment");
-            }
-        });
+        RecyclerView recyclerView = (RecyclerView) view.findViewById(R.id.wish_list_fragment_recycler_view);
+        recyclerView.setHasFixedSize(true);
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());
+        recyclerView.setLayoutManager(linearLayoutManager);
+        adapter = new WishListAdapter(this.getContext(), getFragmentManager(), recyclerView, products);
+        recyclerView.setAdapter(adapter);
 
         return view;
     }
