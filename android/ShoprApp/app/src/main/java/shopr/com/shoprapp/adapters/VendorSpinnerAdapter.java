@@ -14,13 +14,15 @@ import shopr.com.shoprapp.R;
 
 /**
  * Created by Neil on 11/3/2016.
+ *
+ * @author Neil Allison
  */
 
 public class VendorSpinnerAdapter extends BaseAdapter {
     private Context context;
-    String[] vendors;
-    int[] logos;
-    Double[] salePrices;
+    private String[] vendors;
+    private int[] logos;
+    private Double[] salePrices;
 
     public VendorSpinnerAdapter(Context context, String[] vendors, int[] logos, Double[] salePrices) {
         this.context = context;
@@ -45,14 +47,17 @@ public class VendorSpinnerAdapter extends BaseAdapter {
     }
 
     @Override
-    public View getView(int i, View view, ViewGroup viewGroup) {
-        view = LayoutInflater.from(context).inflate(R.layout.product_detail_customer_spinner_row, null);
+    public View getView(int i, View view, ViewGroup parent) {
+        if (view == null) {
+            view = LayoutInflater.from(context).inflate(R.layout.product_detail_customer_spinner_row, parent, false);
 
-        TextView salePrice = (TextView) view.findViewById(R.id.product_detail_spinner_sale_price);
-        salePrice.setText("$" + String.format(Locale.US, "%.2f", salePrices[i]));
+            TextView salePrice = (TextView) view.findViewById(R.id.product_detail_spinner_sale_price);
+            String salePriceText = "$" + String.format(Locale.US, "%.2f", salePrices[i]);
+            salePrice.setText(salePriceText);
 
-        ImageView vendorLogo = (ImageView) view.findViewById(R.id.product_detail_spinner_vendor_image);
-        vendorLogo.setImageResource(logos[i]);
+            ImageView vendorLogo = (ImageView) view.findViewById(R.id.product_detail_spinner_vendor_image);
+            vendorLogo.setImageResource(logos[i]);
+        }
 
         return view;
     }
