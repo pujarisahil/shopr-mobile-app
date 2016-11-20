@@ -100,7 +100,7 @@ public class ShoppingCartAdapter extends BaseAdapter {
         return row;
     }
 
-    static class CardViewHolder {
+    private static class CardViewHolder {
         TextView nameTextView;
         TextView priceTextView;
         TextView quantityTextView;

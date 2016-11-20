@@ -3,10 +3,13 @@ package shopr.com.shoprapp.utils;
 import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v4.app.DialogFragment;
 
 /**
  * Created by Neil on 10/20/2016.
+ *
+ * @author Neil Allison
  */
 
 public class SpinnerDialogFragment extends DialogFragment {
@@ -21,6 +24,7 @@ public class SpinnerDialogFragment extends DialogFragment {
         return dialogFragment;
     }
 
+    @NonNull
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
         ProgressDialog progressDialog = new ProgressDialog(getActivity());

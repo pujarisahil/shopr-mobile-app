@@ -1,5 +1,6 @@
 package shopr.com.shoprapp.fragment;
 
+import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Intent;
@@ -57,10 +58,13 @@ public class ProductDetailDialogFragment extends DialogFragment {
         this.shoprProducts = shoprProducts;
     }
 
+    @NonNull
     @Override
-    public Dialog onCreateDialog(@NonNull Bundle savedInstanceState) {
+    public Dialog onCreateDialog(Bundle savedInstanceState) {
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
         LayoutInflater inflater = getActivity().getLayoutInflater();
+        @SuppressLint("InflateParams")
+        // Since no access to the parent before inflation for a dialog, need to pass null as second argument
         final View view = inflater.inflate(R.layout.product_detail_dialog_layout, null);
         builder.setView(view);
 

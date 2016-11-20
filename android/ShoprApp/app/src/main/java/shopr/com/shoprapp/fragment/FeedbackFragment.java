@@ -35,7 +35,6 @@ public class FeedbackFragment extends Fragment {
     private TextInputEditText nameText;
     private TextInputEditText emailText;
     private TextInputEditText commentsText;
-    private Button feedbackSubmitButton;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -45,7 +44,7 @@ public class FeedbackFragment extends Fragment {
         emailText = (TextInputEditText) view.findViewById(R.id.input_feedback_email);
         commentsText = (TextInputEditText) view.findViewById(R.id.input_feedback_comments);
 
-        feedbackSubmitButton = (Button) view.findViewById(R.id.feedback_submit_button);
+        Button feedbackSubmitButton = (Button) view.findViewById(R.id.feedback_submit_button);
         feedbackSubmitButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

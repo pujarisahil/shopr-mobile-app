@@ -17,6 +17,7 @@
     <string name="facebook_app_id">878577035610496</string>
 
     <string name="no_sale">No Sale</string>
+    <string name="no_description">No Description</string>
 
     <string-array name="search_order_by_array">
         <item>Order by (Optional)</item>

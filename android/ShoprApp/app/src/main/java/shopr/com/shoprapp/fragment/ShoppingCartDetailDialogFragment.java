@@ -1,5 +1,6 @@
 package shopr.com.shoprapp.fragment;
 
+import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.DialogInterface;
@@ -46,6 +47,9 @@ public class ShoppingCartDetailDialogFragment extends DialogFragment {
     public Dialog onCreateDialog(Bundle savedInstanceState) {
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
         LayoutInflater inflater = getActivity().getLayoutInflater();
+
+        @SuppressLint("InflateParams")
+        // Since no access to the parent before inflation for a dialog, need to pass null as second argument
         final View view = inflater.inflate(R.layout.shopping_cart_detail_dialog_layout, null);
         builder.setView(view);
 
@@ -82,7 +86,7 @@ public class ShoppingCartDetailDialogFragment extends DialogFragment {
         } else if (!shortDescription.isEmpty()) {
             descriptionTextView.setText(shortDescription);
         } else {
-            descriptionTextView.setText("No Description");
+            descriptionTextView.setText(R.string.no_description);
         }
 
         Double regularPrice = shoprProduct.getRegularPrice();
@@ -103,7 +107,8 @@ public class ShoppingCartDetailDialogFragment extends DialogFragment {
         }
 
         TextView quantityTextView = (TextView) view.findViewById(R.id.shopping_cart_detail_quantity);
-        quantityTextView.setText("Qty: " + shoprProduct.getQuantity());
+        String quantityStr = "Qty: " + shoprProduct.getQuantity();
+        quantityTextView.setText(quantityStr);
 
         builder.setNegativeButton("Remove", new DialogInterface.OnClickListener() {
             @Override

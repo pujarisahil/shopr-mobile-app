@@ -39,7 +39,6 @@ public class RegisterActivity extends AppCompatActivity {
     private TextInputEditText emailText;
     private TextInputEditText passwordText;
     private Button registerButton;
-    private TextView loginLink;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -60,7 +59,7 @@ public class RegisterActivity extends AppCompatActivity {
             }
         });
 
-        loginLink = (TextView) findViewById(R.id.link_login);
+        TextView loginLink = (TextView) findViewById(R.id.link_login);
         loginLink.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

@@ -36,21 +36,15 @@ import shopr.com.shoprapp.utils.ShoprRestClient;
 
 public class SearchResultsFragment extends Fragment {
     private JSONArray results;
-    private RequestParams requestParams;
 
-    public static SearchResultsFragment newInstance(JSONArray results, RequestParams requestParams) {
+    public static SearchResultsFragment newInstance(JSONArray results) {
         SearchResultsFragment fragment = new SearchResultsFragment();
         fragment.setResults(results);
-        fragment.setRequestParams(requestParams);
         return fragment;
     }
 
     public void setResults(JSONArray results) {
         this.results = results;
-    }
-
-    public void setRequestParams(RequestParams requestParams) {
-        this.requestParams = requestParams;
     }
 
     @Nullable

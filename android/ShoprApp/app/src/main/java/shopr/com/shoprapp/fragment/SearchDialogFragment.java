@@ -1,5 +1,6 @@
 package shopr.com.shoprapp.fragment;
 
+import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.DialogInterface;
@@ -49,10 +50,14 @@ public class SearchDialogFragment extends DialogFragment {
         this.fragmentManager = fragmentManager;
     }
 
+    @NonNull
     @Override
     public Dialog onCreateDialog(@NonNull Bundle savedInstanceState) {
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
         LayoutInflater inflater = getActivity().getLayoutInflater();
+
+        @SuppressLint("InflateParams")
+        // Since no access to the parent before inflation for a dialog, need to pass null as second argument
         final View view = inflater.inflate(R.layout.search_dialog_layout, null);
         builder.setView(view);
 
@@ -130,7 +135,7 @@ public class SearchDialogFragment extends DialogFragment {
             @Override
             public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
                 try {
-                    Fragment fragment = SearchResultsFragment.newInstance(new JSONArray(new String(responseBody)), params);
+                    Fragment fragment = SearchResultsFragment.newInstance(new JSONArray(new String(responseBody)));
                     fragmentManager.beginTransaction().replace(R.id.main_fragment_content, fragment).commit();
                 } catch (Exception e) {
                     e.printStackTrace();

@@ -196,8 +196,4 @@ public class WishListFragment extends Fragment {
         ItemTouchHelper mItemTouchHelper = new ItemTouchHelper(simpleItemTouchCallback);
         mItemTouchHelper.attachToRecyclerView(recyclerView);
     }
-
-    public WishListAdapter getAdapter() {
-        return adapter;
-    }
 }

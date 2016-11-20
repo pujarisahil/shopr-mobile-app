@@ -1,18 +1,19 @@
 package shopr.com.shoprapp.fragment;
 
+import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.DialogInterface;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v4.app.DialogFragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.squareup.picasso.Picasso;
 
@@ -46,10 +47,13 @@ public class WishListDetailDialogFragment extends DialogFragment {
         this.shoprProduct = shoprProduct;
     }
 
+    @NonNull
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
         LayoutInflater inflater = getActivity().getLayoutInflater();
+        @SuppressLint("InflateParams")
+        // Since no access to the parent before inflation for a dialog, need to pass null as second argument
         final View view = inflater.inflate(R.layout.wishlist_detail_dialog_layout, null);
         builder.setView(view);
 
@@ -86,7 +90,7 @@ public class WishListDetailDialogFragment extends DialogFragment {
         } else if (!shortDescription.isEmpty()) {
             descriptionTextView.setText(shortDescription);
         } else {
-            descriptionTextView.setText("No Description");
+            descriptionTextView.setText(R.string.no_description);
         }
 
         Double regularPrice = shoprProduct.getRegularPrice();
