@@ -3,25 +3,35 @@ package shopr.com.shoprapp.fragment;
 import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.app.Dialog;
-import android.content.DialogInterface;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.DialogFragment;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
-import android.widget.Toast;
 
+import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.squareup.picasso.Picasso;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.UnsupportedEncodingException;
 import java.util.Locale;
 
+import cz.msebera.android.httpclient.Header;
+import cz.msebera.android.httpclient.entity.StringEntity;
 import shopr.com.shoprapp.R;
+import shopr.com.shoprapp.adapters.ShoppingCartAdapter;
 import shopr.com.shoprapp.objects.ShoprProduct;
+import shopr.com.shoprapp.utils.ShoprRestClient;
 
 /**
  * Created by Neil on 11/2/2016.
@@ -31,11 +41,17 @@ import shopr.com.shoprapp.objects.ShoprProduct;
 
 public class ShoppingCartDetailDialogFragment extends DialogFragment {
     private ShoprProduct shoprProduct;
+    private ShoppingCartAdapter shoppingCartAdapter;
 
-    public static ShoppingCartDetailDialogFragment newInstance(ShoprProduct shoprProduct) {
+    public static ShoppingCartDetailDialogFragment newInstance(ShoppingCartAdapter shoppingCartAdapter, ShoprProduct shoprProduct) {
         ShoppingCartDetailDialogFragment fragment = new ShoppingCartDetailDialogFragment();
+        fragment.setShoppingCartAdapter(shoppingCartAdapter);
         fragment.setShoprProduct(shoprProduct);
         return fragment;
+    }
+
+    public void setShoppingCartAdapter(ShoppingCartAdapter shoppingCartAdapter) {
+        this.shoppingCartAdapter = shoppingCartAdapter;
     }
 
     public void setShoprProduct(ShoprProduct shoprProduct) {
@@ -106,22 +122,47 @@ public class ShoppingCartDetailDialogFragment extends DialogFragment {
             salePriceTextView.setTextColor(Color.BLACK);
         }
 
-        TextView quantityTextView = (TextView) view.findViewById(R.id.shopping_cart_detail_quantity);
-        String quantityStr = "Qty: " + shoprProduct.getQuantity();
-        quantityTextView.setText(quantityStr);
+        final EditText quantityEditText = (EditText) view.findViewById(R.id.shopping_cart_detail_quantity_edit_text);
+        String quantityText = String.valueOf(shoprProduct.getQuantity());
+        quantityEditText.setText(quantityText);
 
-        builder.setNegativeButton("Remove", new DialogInterface.OnClickListener() {
+        Button removeProductButton = (Button) view.findViewById(R.id.shopping_cart_detail_remove_button);
+        removeProductButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(DialogInterface dialogInterface, int i) {
-                // TODO: remove from shopping cart
-                Toast.makeText(getContext(), "Remove From Shopping Cart Sprint 3", Toast.LENGTH_LONG).show();
+            public void onClick(View view) {
+                shoppingCartAdapter.remove(shoppingCartAdapter.getShoppingCartItems().indexOf(shoprProduct));
             }
         });
 
-        builder.setPositiveButton("Close", new DialogInterface.OnClickListener() {
+        Button updateQuantityButton = (Button) view.findViewById(R.id.shopping_cart_detail_update_button);
+        updateQuantityButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(DialogInterface dialogInterface, int i) {
-                // Ignore
+            public void onClick(final View view) {
+                String upc = shoprProduct.getUpc();
+                String vendor = shoprProduct.getVendor();
+
+                String url = "/user/shopping-cart-update";
+                JSONObject params = new JSONObject();
+                StringEntity entity = null;
+                try {
+                    params.put("upc", upc);
+                    params.put("vendor", vendor);
+                    params.put("quantity", Integer.parseInt(quantityEditText.getText().toString()));
+                    entity = new StringEntity(params.toString());
+                } catch (JSONException | UnsupportedEncodingException e) {
+                    e.printStackTrace();
+                }
+                ShoprRestClient.post(getContext(), url, entity, "application/json", new AsyncHttpResponseHandler() {
+                    @Override
+                    public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
+                        Snackbar.make(view, "Product quantity updated", Snackbar.LENGTH_SHORT).show();
+                    }
+
+                    @Override
+                    public void onFailure(int statusCode, Header[] headers, byte[] responseBody, Throwable error) {
+                        Snackbar.make(view, "Product quantity update failed", Snackbar.LENGTH_SHORT).show();
+                    }
+                });
             }
         });
 

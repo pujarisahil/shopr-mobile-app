@@ -19,6 +19,10 @@
     <string name="no_sale">No Sale</string>
     <string name="no_description">No Description</string>
 
+    <string name="qty">Qty</string>
+    <string name="quantity">Qty:</string>
+    <string name="product_image">Product image</string>
+
     <string-array name="search_order_by_array">
         <item>Order by (Optional)</item>
         <item>Popularity</item>

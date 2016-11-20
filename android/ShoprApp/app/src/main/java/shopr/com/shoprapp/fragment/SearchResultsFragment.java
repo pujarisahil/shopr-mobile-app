@@ -123,7 +123,6 @@ public class SearchResultsFragment extends Fragment {
                         Toast.makeText(getContext(), "Get product detail failed", Toast.LENGTH_SHORT).show();
                     }
                 });
-                Snackbar.make(view, "Show Product Detail", Snackbar.LENGTH_LONG).show();
             }
         });
 

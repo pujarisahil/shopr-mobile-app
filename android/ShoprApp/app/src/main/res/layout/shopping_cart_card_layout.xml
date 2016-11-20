@@ -3,16 +3,20 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:padding="8dp"
+    android:layout_marginLeft="8dp"
+    android:layout_marginRight="8dp"
+    android:layout_marginTop="4dp"
+    android:layout_marginBottom="4dp"
     android:elevation="2dp"
-    android:background="#FFFFFF"
+    android:background="@drawable/round_rect"
     android:descendantFocusability="beforeDescendants">
 
     <LinearLayout
         android:id="@+id/shopping_cart_card_image_container"
         android:layout_width="0dp"
-        android:layout_height="110dp"
-        android:layout_weight="0.3">
+        android:layout_height="100dp"
+        android:layout_weight="0.3"
+        android:layout_margin="8dp">
 
         <ImageView
             android:id="@+id/shopping_cart_card_image"
@@ -26,24 +30,22 @@
     <LinearLayout
         android:id="@+id/shopping_cart_item_text_container"
         android:layout_width="0dp"
-        android:layout_height="110dp"
+        android:layout_height="100dp"
         android:layout_weight="0.7"
+        android:layout_margin="8dp"
         android:orientation="vertical">
 
         <TextView
             android:id="@+id/shopping_cart_card_name"
             android:layout_width="match_parent"
-            android:layout_height="55dp"
-            android:paddingLeft="16dp"
-            android:paddingRight="16dp"
-            android:paddingTop="16dp"
+            android:layout_height="50dp"
             android:textSize="12sp"
             android:textStyle="bold"/>
 
         <LinearLayout
             android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="55dp">
+            android:layout_height="50dp">
 
             <LinearLayout
                 android:id="@+id/prices_layout"
@@ -58,7 +60,7 @@
                     android:layout_weight=".50"
                     android:textSize="12sp"
                     android:paddingTop="12dp"
-                    android:paddingLeft="32dp"/>
+                    android:paddingLeft="16dp"/>
 
                 <TextView
                     android:id="@+id/shopping_cart_card_quantity"
@@ -66,7 +68,7 @@
                     android:layout_height="0dp"
                     android:layout_weight=".50"
                     android:textSize="12sp"
-                    android:paddingLeft="32dp"/>
+                    android:paddingLeft="16dp"/>
 
             </LinearLayout>
 
